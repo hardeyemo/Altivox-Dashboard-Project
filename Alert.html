@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpringTide Dashboard</title>
+    <link rel="stylesheet" href="/Alert.css" />
+</head>
+
+<body>
+    <div class="overlay" onclick="toggleSidebar()"></div>
+    <div class="container">
+        <!-- Overlay for mobile sidebar -->
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/Image/SPRINGFIELD LOGO 1.png" alt="">
+                <p>SpringTide</p>
+            </div>
+            <nav>
+                <ul>
+                    <div class="side"><img src="/Image/dash.png" alt="">
+                        <li>Dashboard</li>
+                    </div>
+                    <div class="side"><img src="/Image/solar_box-minimalistic-outline.png" alt="">
+                        <li>Shipments</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_truck.png" alt="">
+                        <li>Drivers</li>
+                    </div>
+                    <div class="side"><img src="/Image/basil_invoice-outline.png" alt="">
+                        <li>Invoicing</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_communication.png" alt="">
+                        <li>Communication</li>
+                    </div>
+                    <div class="side"><img src="/Image/mingcute_notification-line.png" alt="">
+                        <li>Alerts</li>
+                    </div>
+                    <div class="side"><img src="/Image/iconoir_reports.png" alt="">
+                        <li>Reports</li>
+                    </div>
+                    <div class="side"><img src="/Image/flowbite_users-outline.png" alt="">
+                        <li>User Management</li>
+                    </div>
+                </ul>
+            </nav>
+            <div class="settings">
+                <img src="/Image/settings.png" alt="">
+                <p>Settings</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <header class="top-bar">
+                <div class="search-section">
+                    <img src="/Image/search.png" alt="">
+                    <input type="text" class="search" placeholder="Search any keyword..." />
+                </div>
+                <div class="ham">
+                    <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+                    <div class="user">
+                        <span>Admin User</span>
+                        <img src="/Image/mingcute_notification-line.png" alt="">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </header>
+            <section class="alerts-header-section">
+                <div class="alerts-header">
+                        <h3>Automation & Alerts</h3>
+                    <div class="buttons">
+                        <button class="view-logs">View Logs</button>
+                        <button class="create-alert">+ Create Alert</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <span class="active">Custom Alert Builder</span>
+                <span>Workflow Engine</span>
+                <span>Recent Activity</span>
+            </div>
+
+
+            <!-- Alerts List -->
+            <section class="alerts-section">
+                <div class="fle">
+                    <div class="rule">
+                        <h3>Alert Rules</h3>
+                        <p>Configure custom notifications for important events</p>
+                    </div>
+
+                    <section class="search-section">
+                        <input type="text" class="search" placeholder="Search alerts..." />
+                    </section>
+                </div>
+                <div class="alert-list">
+                    <div class="alert-item">
+                        <div class="alert-text">
+                            <div class="clock">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>Delivery Delay</strong>
+                            </div>
+                            <p>Alert when a delivery is delayed by more than the specified time.</p>
+                        </div>
+                        <div class="icons">
+                            <img src="/Image//Frame 2147227512.png" alt="">
+                            <img src="/Image//Frame 2147227513.png" alt="">
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-text">
+                            <div class="clock">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>Vehicle Issues</strong>
+                            </div>
+                            <p>Alert when a driver reports vehicle issues or maintenance is required.</p>
+                        </div>
+                        <div class="icons">
+                            <img src="/Image//Frame 2147227512.png" alt="">
+                            <img src="/Image//Frame 2147227513.png" alt="">
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-text">
+                            <div class="clock">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>New Customer Onboarding</strong>
+                            </div>
+                            <p>Notification when a new customer is added to the system.</p>
+                        </div>
+                        <div class="icons">
+                            <img src="/Image//Frame 2147227512.png" alt="">
+                            <img src="/Image//Frame 2147227513.png" alt="">
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-text">
+                            <div class="clock">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>Fuel Level Warning</strong>
+                            </div>
+                            <p>Alert when a vehicle’s fuel level falls below 25%.</p>
+                        </div>
+                        <div class="icons">
+                            <img src="/Image//Frame 2147227512.png" alt="">
+                            <img src="/Image//Frame 2147227513.png" alt="">
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-text">
+                            <div class="clock">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>Document Expiration</strong>
+                            </div>
+                            <p>Alert when driver or vehicle documents are expiring soon.</p>
+                        </div>
+                        <div class="icons">
+                            <img src="/Image//Frame 2147227512.png" alt="">
+                            <img src="/Image//Frame 2147227513.png" alt="">
+                            <input type="checkbox" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+
+
+
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+
+</body>
+
+</html>

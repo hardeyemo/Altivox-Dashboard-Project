@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Dashboard</title>
+    <link rel="stylesheet" href="/Report1.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<style>
+    .dashboard-content a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .dashboard-content a:hover {
+        color: #4CAF50;
+    }
+</style>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/Image/SPRINGFIELD LOGO 1.png" alt="">
+                <p>SpringTide</p>
+            </div>
+            <nav>
+                <ul>
+                    <div class="side"><img src="/Image/dash.png" alt="">
+                        <li>Dashboard</li>
+                    </div>
+                    <div class="side"><img src="/Image/solar_box-minimalistic-outline.png" alt="">
+                        <li>Shipments</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_truck.png" alt="">
+                        <li>Drivers</li>
+                    </div>
+                    <div class="side"><img src="/Image/basil_invoice-outline.png" alt="">
+                        <li>Invoicing</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_communication.png" alt="">
+                        <li>Communication</li>
+                    </div>
+                    <div class="side"><img src="/Image/mingcute_notification-line.png" alt="">
+                        <li>Alerts</li>
+                    </div>
+                    <div class="side"><img src="/Image/iconoir_reports.png" alt="">
+                        <li>Reports</li>
+                    </div>
+                    <div class="side"><img src="/Image/flowbite_users-outline.png" alt="">
+                        <li>User Management</li>
+                    </div>
+                </ul>
+            </nav>
+            <div class="settings">
+                <img src="/Image/settings.png" alt="">
+                <p>Settings</p>
+            </div>
+        </aside>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <header class="top-bar">
+                <div class="search-section">
+                    <img src="/Image/search.png" alt="">
+                    <input type="text" class="search" placeholder="Search any keyword..." />
+                </div>
+                <div class="ham">
+                    <!-- <div class="hamburger" onclick="toggleSidebar()">&#9776;</div> -->
+                    <div class="user">
+                        <span>Admin User</span>
+                        <img src="/Image/mingcute_notification-line.png" alt="">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </header>
+            <section class="alerts-header-section">
+                <div class="alerts-header">
+                    <h3>Reports & Analytics</h3>
+                    <div class="buttons">
+                        <button class="view-logs">Last 30 Days</button>
+                        <button class="create-alert">+ Export</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Tabs -->
+            <div class="tabs">
+                <a href="/Report1.html"><span class="active">Operational KPIs</span></a>
+                <a href="/Report2.html"><span>Customer Reports</span></a>
+                <a href="/Report3.html"><span>Cost Analysis</span></a>
+            </div>
+
+            <div class="chart">
+                <div class="pie-histo">
+                    <div class="pie-chart-container">
+                        <div class="pie-chart">
+                            <canvas id="deliveryPieChart"></canvas>
+                            <div id="pieCustomLegend" class="custom-legend"></div>
+                        </div>
+                        <div class="custom-legend">
+                            <div><span class="dot on-time"></span><span class="label on-time">On-Time</span></div>
+                            <div><span class="dot late"></span><span class="label late">Late</span></div>
+                            <div><span class="dot very-late"></span><span class="label very-late">Very Late</span></div>
+                        </div>
+
+                    </div>
+                    <div class="histo">
+                        <h1 class="top">Average Delivery Time</h1>
+                        <canvas id="historicalChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="chart-container-1">
+                        <h1 class="top">Driver Efficiency</h1>
+                        <canvas id="deliveryBarChart"></canvas>
+                    </div>
+                    <div class="chart-container-2">
+                        <h1 class="top">Shipment Volume by Status</h1>
+                        <canvas id="ordersBarChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    const ctx = document.getElementById('deliveryBarChart').getContext('2d');
+    const deliveryBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Emmanuel', 'Amina', 'Chinedu', 'Fatima', 'Oluwaseun'],
+            datasets: [{
+                label: 'Efficiency %',
+                data: [90, 80, 50, 30, 70],
+                backgroundColor: '#8884D8',
+                borderColor: '#222c41',
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 25,
+                    },
+                    grid: {
+                        borderDash: [2, 2] // 👈 Dotted horizontal lines
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false // Optional: remove vertical lines
+                    }
+
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#8884D8',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+
+        }
+    });
+</script>
+
+
+<script>
+    const ctx2 = document.getElementById('ordersBarChart').getContext('2d');
+
+    const ordersBarChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Delivered', 'In Transit', 'Delayed', 'Failed'], // Make sure label count matches data
+            datasets: [{
+                label: 'Number of Shipments',
+                data: [200, 150, 70, 10], // Must match number of labels
+                backgroundColor: '#82CA9D',
+                borderColor: '#dc2626',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 260,
+                    ticks: {
+                        stepSize: 65,
+                        color: '#444'
+                    },
+                    grid: {
+                        borderDash: [2, 2]
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#444'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#82CA9D',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<script>
+    const ctx3 = document.getElementById('historicalChart').getContext('2d');
+
+    const historicalChart = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Avg. Delivery Time (min)',
+                data: [50, 45, 48, 42, 38, 35],
+                backgroundColor: '#8884D8',
+                borderColor: '#4f46e5',
+                borderWidth: 2,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#4f46e5'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 60,
+                    title: {
+                        display: true,
+                        text: 'Minutes',
+                        font: {
+                            size: 14
+                        }
+                    },
+                    ticks: {
+                        stepSize: 15,
+                        color: '#444'
+                    },
+                    grid: {
+                        borderDash: [2, 2]
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#444'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#8884D8',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<script>
+    const pieCtx = document.getElementById('deliveryPieChart').getContext('2d');
+
+    const pieData = {
+        labels: ['On-Time', 'Late', 'Very Late'],
+        datasets: [{
+            data: [65, 25, 10],
+            backgroundColor: ['#0088FE', '#00C49F', '#FFBB28'],
+            borderColor: '#fff',
+            borderWidth: 2
+        }]
+    };
+
+    const deliveryPieChart = new Chart(pieCtx, {
+        type: 'pie',
+        data: pieData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (context) => {
+                            return `${context.label}: ${context.parsed}%`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Custom Legend Function
+    function generatePieCustomLegend(chart) {
+        const legendContainer = document.getElementById('pieCustomLegend');
+        legendContainer.innerHTML = '';
+
+        const data = chart.data.datasets[0].data;
+        const total = data.reduce((a, b) => a + b, 0);
+        const labels = chart.data.labels;
+        const colors = chart.data.datasets[0].backgroundColor;
+
+        labels.forEach((label, i) => {
+            const percentage = ((data[i] / total) * 100).toFixed(1);
+            const item = document.createElement('div');
+            item.className = 'custom-legend-item';
+            item.innerHTML = `
+        <span class="custom-legend-dot" style="background-color: ${colors[i]}"></span>
+        ${label}: ${percentage}%
+      `;
+            legendContainer.appendChild(item);
+        });
+    }
+
+    generatePieCustomLegend(deliveryPieChart);
+</script>

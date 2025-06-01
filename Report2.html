@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Dashboard</title>
+    <link rel="stylesheet" href="/Report2.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<style>
+    .dashboard-content a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .dashboard-content a:hover {
+        color: #4CAF50;
+    }
+</style>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/Image/SPRINGFIELD LOGO 1.png" alt="">
+                <p>SpringTide</p>
+            </div>
+            <nav>
+                <ul>
+                    <div class="side"><img src="/Image/dash.png" alt="">
+                        <li>Dashboard</li>
+                    </div>
+                    <div class="side"><img src="/Image/solar_box-minimalistic-outline.png" alt="">
+                        <li>Shipments</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_truck.png" alt="">
+                        <li>Drivers</li>
+                    </div>
+                    <div class="side"><img src="/Image/basil_invoice-outline.png" alt="">
+                        <li>Invoicing</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_communication.png" alt="">
+                        <li>Communication</li>
+                    </div>
+                    <div class="side"><img src="/Image/mingcute_notification-line.png" alt="">
+                        <li>Alerts</li>
+                    </div>
+                    <div class="side"><img src="/Image/iconoir_reports.png" alt="">
+                        <li>Reports</li>
+                    </div>
+                    <div class="side"><img src="/Image/flowbite_users-outline.png" alt="">
+                        <li>User Management</li>
+                    </div>
+                </ul>
+            </nav>
+            <div class="settings">
+                <img src="/Image/settings.png" alt="">
+                <p>Settings</p>
+            </div>
+        </aside>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <header class="top-bar">
+                <div class="search-section">
+                    <img src="/Image/search.png" alt="">
+                    <input type="text" class="search" placeholder="Search any keyword..." />
+                </div>
+                <div class="ham">
+                    <!-- <div class="hamburger" onclick="toggleSidebar()">&#9776;</div> -->
+                    <div class="user">
+                        <span>Admin User</span>
+                        <img src="/Image/mingcute_notification-line.png" alt="">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </header>
+            <section class="alerts-header-section">
+                <div class="alerts-header">
+                    <h3>Reports & Analytics</h3>
+                    <div class="buttons">
+                        <button class="view-logs">Last 30 Days</button>
+                        <button class="create-alert">+ Export</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Tabs -->
+            <div class="tabs">
+                <a href="/Report1.html"><span class="active">Operational KPIs</span></a>
+                <a href="/Report2.html"><span>Customer Reports</span></a>
+                <a href="/Report3.html"><span>Cost Analysis</span></a>
+            </div>
+
+    <div class="chart">
+        <div class="bar">
+            <div class="chart-container-1">
+                <h1 class="top">Top Clients by Revenue</h1>
+                <canvas id="deliveryBarChart"></canvas>
+            </div>
+            <div class="chart-container-2">
+                <h1 class="top">Customer Complaint Frequency</h1>
+                <canvas id="ordersBarChart"></canvas>
+            </div>
+        </div>
+        <div class="histo">
+            <h1 class="top">Customer Satisfaction Trends</h1>
+            <canvas id="historicalChart"></canvas>
+        </div>
+    </div>
+
+    </main>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    const ctx = document.getElementById('deliveryBarChart').getContext('2d');
+    const deliveryBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Retail Partners', 'Incline Corp', 'Global Bings', 'Tech Innovo'],
+            datasets: [{
+                label: 'Revenue (₦)',
+                data: [1500000, 3000000, 4500000, 6000000, 30],
+                backgroundColor: '#8884D8',
+                borderColor: '#222c41',
+            }]
+        },
+        options: {
+            responsive: true,
+            indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 6000000,
+                    ticks: {
+                        stepSize: 1500000,
+                    },
+                    grid: {
+                        borderDash: [2, 2] // 👈 Dotted horizontal lines
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false // Optional: remove vertical lines
+                    }
+
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#8884D8',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<script>
+    const ctx2 = document.getElementById('ordersBarChart').getContext('2d');
+
+    const ordersBarChart = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Late Delivery', 'Wrong Item', 'Billing Issues', 'Damaged'], // Make sure label count matches data
+            datasets: [{
+                label: 'Number of Complaints',
+                data: [40, 30, 20, 10], // Must match number of labels
+                backgroundColor: 'orange',
+                borderColor: '#dc2626',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 40,
+                    ticks: {
+                        stepSize: 10,
+                        color: '#444'
+                    },
+                    grid: {
+                        borderDash: [2, 2]
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#444'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: 'orange',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<script>
+    const ctx3 = document.getElementById('historicalChart').getContext('2d');
+
+    const historicalChart = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Satisfaction',
+                data: [50, 45, 48, 42, 38, 35],
+                backgroundColor: '#11AD17',
+                borderColor: '#11AD17',
+                borderWidth: 2,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#11AD17'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 60,
+
+                    ticks: {
+                        stepSize: 15,
+                        color: '#11AD17'
+                    },
+                    grid: {
+                        borderDash: [2, 2]
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#11AD17'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    align: 'start',
+                    labels: {
+                        color: '#11AD17',
+                        font: {
+                            size: 17
+                        },
+                        boxWidth: 18,   // 👈 Width of the legend color box
+                        boxHeight: 18   // 👈 Height of the legend color box (Chart.js 4+ only)
+                    }
+                }
+            }
+        }
+    });
+</script>

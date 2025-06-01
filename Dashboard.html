@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Dashboard</title>
+    <link rel="stylesheet" href="/Dashboard.css" />
+
+</head>
+
+<body>
+    <div class="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/Image/SPRINGFIELD LOGO 1.png" alt="">
+                <p>SpringTide</p>
+            </div>
+            <nav>
+                <ul>
+                    <div class="side"><img src="/Image/dash.png" alt="">
+                        <li>Dashboard</li>
+                    </div>
+                    <div class="side"><img src="/Image/solar_box-minimalistic-outline.png" alt="">
+                        <li>Shipments</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_truck.png" alt="">
+                        <li>Drivers</li>
+                    </div>
+                    <div class="side"><img src="/Image/basil_invoice-outline.png" alt="">
+                        <li>Invoicing</li>
+                    </div>
+                    <div class="side"><img src="/Image/icon-park-outline_communication.png" alt="">
+                        <li>Communication</li>
+                    </div>
+                    <div class="side"><img src="/Image/mingcute_notification-line.png" alt="">
+                        <li>Alerts</li>
+                    </div>
+                    <div class="side"><img src="/Image/iconoir_reports.png" alt="">
+                        <li>Reports</li>
+                    </div>
+                    <div class="side"><img src="/Image/flowbite_users-outline.png" alt="">
+                        <li>User Management</li>
+                    </div>
+                </ul>
+            </nav>
+            <div class="settings">
+                <img src="/Image/settings.png" alt="">
+                <p>Settings</p>
+            </div>
+        </aside>
+
+        <!-- Main Hero Section -->
+        <main class="hero">
+            <header class="top-bar">
+                <div class="search-section">
+                    <img src="/Image/search.png" alt="">
+                    <input type="text" class="search" placeholder="Search any keyword..." />
+                </div>
+                <div class="ham">
+                    <div class="hamburger" onclick="toggleSidebar()">&#9776;</div>
+                    <div class="user">
+                        <span>Admin User</span>
+                        <img src="/Image/mingcute_notification-line.png" alt="">
+                        <div class="avatar"></div>
+                    </div>
+                </div>
+            </header>
+            <section class="alerts-header-section">
+                <div class="alerts-header">
+                    <div class="dash">
+                        <h1>Dashboard</h1>
+                        <p>Here's what's happening with your shipments today.</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="view-logs">Assign Driver</button>
+                        <button class="create-alert">+ Create Shipment</button>
+                    </div>
+                </div>
+            </section>
+            <div>
+                <div class="up">
+                    <div class="shipments-summary">
+                        <h1>Shipments Summary</h1>
+                        <div class="summary-container">
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Picked Up</p>
+                                    <img src="/Image/solar_box-minimalistic-outline.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>120</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>5%</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>In Transit</p>
+                                    <img src="/Image/icon-park-outline_truck.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>244</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>8%</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Delivered</p>
+                                    <img src="/Image/Group (2).png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>300</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>12%</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Delayed</p>
+                                    <img src="/Image/mdi_clock-outline.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>15</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>2%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shipments-summary">
+                        <h1>Driver Status Summary</h1>
+                        <div class="summary-container">
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Picked Active Drivers</p>
+                                    <img src="/Image/mdi_people-check-outline.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>35</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>4%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Idle Drivers</p>
+                                    <img src="/Image/Vector (9).png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>10</h2>
+                                    <div class="status-1">
+                                        <img src="/Image/mynaui_arrow-up.png" alt="">
+                                        <p>2%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shipments-summary">
+                        <h1>Revenue Summary</h1>
+                        <div class="summary-container">
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Total Revenue</p>
+                                    <img src="/Image/mingcute_cash-2-line.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>₦42,500,000</h2>
+                                </div>
+                                <div class="status-1">
+                                    <img src="/Image/mynaui_arrow-up.png" alt="">
+                                    <p>8%</p>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="ship">
+                                    <p>Outstanding Invoices</p>
+                                    <img src="/Image//material-symbols_sms-failed-outline-rounded.png" alt="">
+                                </div>
+                                <div class="ship">
+                                    <h2>₦5,400,000</h2>
+                                </div>
+                                <div class="status-1">
+                                    <img src="/Image/mynaui_arrow-up.png" alt="">
+                                    <p>5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div> -->
+
+
+            <div class="down">
+                <div class="shipment-table">
+                    <div class="table-header">
+                        <h2>Recent Shipments</h2>
+                        <a href="#">View All &rarr;</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer</th>
+                                <th>Route</th>
+                                <th>Driver</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ST-8742</td>
+                                <td>Incline Corp</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>John Doe</td>
+                                <td><span class="status delayed">Delayed</span></td>
+                            </tr>
+                            <tr>
+                                <td>ST-8741</td>
+                                <td>Emily Grace</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>Jane Smith</td>
+                                <td><span class="status in-transit">In Transit</span></td>
+                            </tr>
+                            <tr>
+                                <td>ST-8740</td>
+                                <td>Global Bings</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>Mike John</td>
+                                <td><span class="status in-transit">In Transit</span></td>
+                            </tr>
+                            <tr>
+                                <td>ST-8739</td>
+                                <td>Retail Solutions</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>Sarah Gen</td>
+                                <td><span class="status picked-up">PickedUp</span></td>
+                            </tr>
+                            <tr>
+                                <td>ST-8738</td>
+                                <td>Fashion Forward</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>Ben Olly</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>ST-8738</td>
+                                <td>Grey Goods</td>
+                                <td>Lagos → Ibadan</td>
+                                <td>Bethel Lisa</td>
+                                <td><span class="status delivered">Delivered</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="dashboard-section">
+
+                    <div class="alerts-section">
+                        <h2>Recent Alerts</h2>
+
+                        <div class="alert-box delayed">
+                            <div class="delay">
+                                <img src="/Image/mdi_clock-outline.png" alt="">
+                                <strong>Shipment #ST-8742 is delayed</strong>
+                            </div>
+                            <p>Expected delivery time is now 2 hours later than scheduled.</p>
+                        </div>
+
+                        <div class="alert-box issue">
+                            <div class="delay">
+                                <img src="/Image/icon-park-outline_truck.png" alt="">
+                                <strong>Driver John D. reported vehicle issue</strong>
+                            </div>
+                            <p>Maintenance team has been notified.</p>
+                        </div>
+
+                        <div class="alert-box new">
+                            <div class="delay">
+                                <img src="/Image//material-symbols_sms-failed-outline-rounded.png" alt="">
+                                <strong>New customer onboarded</strong>
+                            </div>
+                            <p>Incline Corp has been successfully added to the system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- </div> -->
+
+        </main>
+    </div>
+
+
+
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
