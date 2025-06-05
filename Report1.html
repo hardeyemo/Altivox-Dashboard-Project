@@ -19,6 +19,12 @@
     .dashboard-content a:hover {
         color: #4CAF50;
     }
+
+    #historicalChart {
+        max-height: 350px;
+        /* Adjust this as needed */
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -98,6 +104,7 @@
             <div class="chart">
                 <div class="pie-histo">
                     <div class="pie-chart-container">
+                        <h1>Cost Breakdown</h1>
                         <div class="pie-chart">
                             <canvas id="deliveryPieChart"></canvas>
                             <div id="pieCustomLegend" class="custom-legend"></div>
@@ -111,7 +118,7 @@
                     </div>
                     <div class="histo">
                         <h1 class="top">Average Delivery Time</h1>
-                        <canvas id="historicalChart"></canvas>
+                        <canvas id="historicalChart" width="400" height="200"></canvas>
                     </div>
                 </div>
 
@@ -146,6 +153,7 @@
                 data: [90, 80, 50, 30, 70],
                 backgroundColor: '#8884D8',
                 borderColor: '#222c41',
+                barThickness: 90,
             }]
         },
         options: {
@@ -198,8 +206,9 @@
                 label: 'Number of Shipments',
                 data: [200, 150, 70, 10], // Must match number of labels
                 backgroundColor: '#82CA9D',
-                borderColor: '#dc2626',
-                borderWidth: 1
+                borderColor: '#82CA9D',
+                borderWidth: 1,
+                barThickness: 90,
             }]
         },
         options: {
@@ -251,14 +260,17 @@
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
-                label: 'Avg. Delivery Time (min)',
-                data: [50, 45, 48, 42, 38, 35],
-                backgroundColor: '#8884D8',
-                borderColor: '#4f46e5',
-                borderWidth: 2,
-                tension: 0.4,
-                pointRadius: 5,
-                pointBackgroundColor: '#4f46e5'
+                label: 'Satisfaction',
+                data: [42, 47, 45, 50, 42, 35],
+                backgroundColor: '#11AD17',
+                borderColor: '#11AD17',
+                borderWidth: 1.5,
+                tension: 0.2,
+                pointRadius: 7,
+                // pointBackgroundColor: '#11AD17',
+                pointStyle: 'circle',
+                pointBackgroundColor: 'white', // or 'transparent'
+                pointBorderColor: '#11AD17',
             }]
         },
         options: {
@@ -267,16 +279,10 @@
                 y: {
                     beginAtZero: true,
                     max: 60,
-                    title: {
-                        display: true,
-                        text: 'Minutes',
-                        font: {
-                            size: 14
-                        }
-                    },
+
                     ticks: {
                         stepSize: 15,
-                        color: '#444'
+                        color: '#11AD17'
                     },
                     grid: {
                         borderDash: [2, 2]
@@ -284,7 +290,7 @@
                 },
                 x: {
                     ticks: {
-                        color: '#444'
+                        color: '#11AD17'
                     },
                     grid: {
                         display: false
@@ -294,8 +300,9 @@
             plugins: {
                 legend: {
                     position: 'bottom',
+                    align: 'start',
                     labels: {
-                        color: '#8884D8',
+                        color: '#11AD17',
                         font: {
                             size: 17
                         },
@@ -307,7 +314,6 @@
         }
     });
 </script>
-
 
 <script>
     const pieCtx = document.getElementById('deliveryPieChart').getContext('2d');

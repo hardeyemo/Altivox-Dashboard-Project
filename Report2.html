@@ -19,6 +19,12 @@
     .dashboard-content a:hover {
         color: #4CAF50;
     }
+
+    #historicalChart {
+        max-height: 350px;
+        /* Adjust this as needed */
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -95,24 +101,25 @@
                 <a href="/Report3.html"><span>Cost Analysis</span></a>
             </div>
 
-    <div class="chart">
-        <div class="bar">
-            <div class="chart-container-1">
-                <h1 class="top">Top Clients by Revenue</h1>
-                <canvas id="deliveryBarChart"></canvas>
-            </div>
-            <div class="chart-container-2">
-                <h1 class="top">Customer Complaint Frequency</h1>
-                <canvas id="ordersBarChart"></canvas>
-            </div>
-        </div>
-        <div class="histo">
-            <h1 class="top">Customer Satisfaction Trends</h1>
-            <canvas id="historicalChart"></canvas>
-        </div>
-    </div>
+            <div class="chart">
+                <div class="bar">
+                    <div class="chart-container-1">
+                        <h1 class="top">Top Clients by Revenue</h1>
+                        <canvas id="deliveryBarChart"></canvas>
+                    </div>
+                    <div class="chart-container-2">
+                        <h1 class="top">Customer Complaint Frequency</h1>
+                        <canvas id="ordersBarChart"></canvas>
+                    </div>
+                </div>
+                <div class="histo">
+                    <h1 class="top">Customer Satisfaction Trends</h1>
+                    <canvas id="historicalChart" width="400" height="200"></canvas>
 
-    </main>
+                </div>
+            </div>
+
+        </main>
     </div>
 </body>
 
@@ -182,8 +189,9 @@
                 label: 'Number of Complaints',
                 data: [40, 30, 20, 10], // Must match number of labels
                 backgroundColor: 'orange',
-                borderColor: '#dc2626',
-                borderWidth: 1
+                borderColor: 'orange',
+                borderWidth: 1,
+                barThickness: 90,
             }]
         },
         options: {
@@ -227,6 +235,8 @@
 </script>
 
 
+
+
 <script>
     const ctx3 = document.getElementById('historicalChart').getContext('2d');
 
@@ -236,13 +246,16 @@
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
                 label: 'Satisfaction',
-                data: [50, 45, 48, 42, 38, 35],
+                data: [42, 47, 45, 50, 42, 35],
                 backgroundColor: '#11AD17',
                 borderColor: '#11AD17',
-                borderWidth: 2,
-                tension: 0.4,
-                pointRadius: 5,
-                pointBackgroundColor: '#11AD17'
+                borderWidth: 1.5,
+                tension: 0.2,
+                pointRadius: 7,
+                // pointBackgroundColor: '#11AD17',
+                pointStyle: 'circle',
+                pointBackgroundColor: 'white', // or 'transparent'
+                pointBorderColor: '#11AD17',
             }]
         },
         options: {

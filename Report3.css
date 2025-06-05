@@ -1,7 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* General Layout */
@@ -212,11 +212,11 @@ ul {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.chart{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .dashboard-content {
@@ -224,7 +224,8 @@ ul {
   gap: 30px;
   padding: 0px 20px;
   /* border-bottom: 2px solid black; */
-  padding-bottom: 0; /* No padding here to ensure alignment */
+  padding-bottom: 0;
+  /* No padding here to ensure alignment */
   position: relative;
 }
 
@@ -235,101 +236,105 @@ ul {
   padding: 10px 0;
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s, color 0.3s;
-  margin-bottom: -2px; /* Align with .dashboard-content's border */
+  margin-bottom: -2px;
+  /* Align with .dashboard-content's border */
 }
 
 .dashboard-content p:hover {
-  border-bottom: 2px solid #4f46e5; /* same thickness and color as desired hover effect */
+  border-bottom: 2px solid #4f46e5;
+  /* same thickness and color as desired hover effect */
   color: #4f46e5;
 }
 
-.top{
+.top {
   margin: 30px;
   font-size: 30px;
 }
+
 .pie-chart-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border: 3px solid #E0E6ED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 3px solid #E0E6ED;
 }
+
 .pie-bar {
-    display: flex;
-    gap: 10px;
-    width: 96%;
-    margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  width: 96%;
+  margin-top: 30px;
 }
 
 .pie-chart,
 .double {
-    width: 50%;
+  width: 50%;
 }
 
 .pie-chart {
-    width: 50%;
-    position: relative;
+  width: 50%;
+  position: relative;
 }
 
 .pie-chart canvas {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 300px;
-    display: block;
-    margin: 0 auto;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
 }
 
 .custom-legend {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    font-size: 14px;
-    color: #333;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #333;
+  margin-top: 20px;
 }
 
 .custom-legend div {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
 }
 
-.dot.on-time {
-    background-color: #0088FE;
+.dot.Fuel {
+  background-color: #0088FE;
 }
 
-.dot.late {
-    background-color: #00C49F;
+.dot.Maintenance {
+  background-color: #00C49F;
 }
 
-.dot.very-late {
-    background-color: #FFBB28;
+.dot.Staff {
+  background-color: #FFBB28;
 }
 
-.label.on-time {
-    color: #4caf50;
+.label.Fuel {
+  color: #4caf50;
 }
 
-.label.late {
-    color: #ff9800;
+.label.Maintenance {
+  color: #ff9800;
 }
 
-.label.very-late {
-    color: #f44336;
+.label.Staff {
+  color: #f44336;
 }
 
 #incomeExpenseChart {
@@ -338,10 +343,16 @@ ul {
 }
 
 .double {
-  
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border: 3px solid #E0E6ED;
+
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 3px solid #E0E6ED;
+}
+
+.pie-chart-container h1 {
+  position: relative;
+  right: 230px;
+  margin-bottom: 20px;
 }

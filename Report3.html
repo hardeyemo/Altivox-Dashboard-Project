@@ -19,6 +19,12 @@
     .dashboard-content a:hover {
         color: #4CAF50;
     }
+
+    #historicalChart {
+        max-height: 350px;
+        /* Adjust this as needed */
+        width: 100%;
+    }
 </style>
 
 
@@ -98,14 +104,15 @@
             <div class="chart">
                 <div class="pie-bar">
                     <div class="pie-chart-container">
+                        <h1>Cost Breakdown</h1>
                         <div class="pie-chart">
                             <canvas id="deliveryPieChart"></canvas>
                             <div id="pieCustomLegend" class="custom-legend"></div>
                         </div>
                         <div class="custom-legend">
-                            <div><span class="dot on-time"></span><span class="label on-time">On-Time</span></div>
-                            <div><span class="dot late"></span><span class="label late">Late</span></div>
-                            <div><span class="dot very-late"></span><span class="label very-late">Very Late</span></div>
+                            <div><span class="dot Fuel"></span><span class="label on-time">Fuel</span></div>
+                            <div><span class="dot Maintenance"></span><span class="label late">Maintenance</span></div>
+                            <div><span class="dot Staff"></span><span class="label very-late">Staff</span></div>
                         </div>
                     </div>
                     <div class="double">
@@ -115,7 +122,8 @@
                 </div>
                 <div class="histo">
                     <h1 class="top">Profit Margins Over Time</h1>
-                    <canvas id="historicalChart"></canvas>
+                    <canvas id="historicalChart" width="400" height="200"></canvas>
+
                 </div>
             </div>
 
@@ -126,12 +134,16 @@
 </html>
 
 <script>
+
+
+
+
     const pieCtx = document.getElementById('deliveryPieChart').getContext('2d');
 
     const pieData = {
-        labels: ['On-Time', 'Late', 'Very Late'],
+        labels: ['Fuel', 'Maintenance', 'Staff'],
         datasets: [{
-            data: [65, 25, 10],
+            data: [35, 25, 30],
             label: 'Income',
             backgroundColor: ['#0088FE', '#00C49F', '#FFBB28'],
             borderColor: '#fff',
@@ -193,14 +205,17 @@
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
             datasets: [{
-                label: 'Profit Margins Over Time',
-                data: [40, 38, 30, 28, 25, 20],
+                label: 'Satisfaction',
+                data: [42, 47, 45, 50, 42, 35],
                 backgroundColor: '#11AD17',
                 borderColor: '#11AD17',
-                borderWidth: 2,
-                tension: 0.4,
-                pointRadius: 5,
-                pointBackgroundColor: '#11AD17'
+                borderWidth: 1.5,
+                tension: 0.2,
+                pointRadius: 7,
+                // pointBackgroundColor: '#11AD17',
+                pointStyle: 'circle',
+                pointBackgroundColor: 'white', // or 'transparent'
+                pointBorderColor: '#11AD17',
             }]
         },
         options: {
@@ -208,10 +223,11 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 40,
+                    max: 60,
+
                     ticks: {
                         stepSize: 15,
-                        // color: '#11AD17'
+                        color: '#11AD17'
                     },
                     grid: {
                         borderDash: [2, 2]
@@ -219,7 +235,7 @@
                 },
                 x: {
                     ticks: {
-                        // color: '#11AD17'
+                        color: '#11AD17'
                     },
                     grid: {
                         display: false

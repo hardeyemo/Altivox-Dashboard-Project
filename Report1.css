@@ -232,7 +232,7 @@ ul {
 }
 
 .top {
-    /* margin: 30px; */
+    margin: 30px;
     font-size: 30px;
 }
 
@@ -359,4 +359,10 @@ ul {
 
 .label.very-late {
     color: #f44336;
+}
+
+.pie-chart-container h1{
+  position: relative;
+  right: 230px;
+  margin-bottom: 20px;
 }
